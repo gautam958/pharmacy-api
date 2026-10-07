@@ -1,0 +1,31 @@
+@host = http://localhost:5207
+
+GET {{host}}/api/medicines?search=para&page=1&pageSize=5
+
+###
+
+GET {{host}}/api/medicines?filter=expiring&sortBy=expiryDate
+
+###
+
+POST {{host}}/api/medicines
+Content-Type: application/json
+
+{
+  "fullName": "Cetirizine Tablets (Strip of 10)",
+  "brand": "Cipla",
+  "expiryDate": "2027-06-30",
+  "quantity": 50,
+  "price": 24.50,
+  "notes": "Store in a cool and dry place"
+}
+
+###
+
+POST {{host}}/api/sales
+Content-Type: application/json
+
+{
+  "medicineId": 1,
+  "quantity": 2
+}
